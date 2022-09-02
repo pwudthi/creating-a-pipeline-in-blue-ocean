@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.346.3-jdk11
+FROM jenkins/node:14-1-84
 ENV JAVA_VERSION="AdoptOpenJDK-11.0.15+10"
 ENV LANG C.UTF-8
 
