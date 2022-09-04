@@ -1,46 +1,43 @@
 {
-    "services": [
+  "services": [
+    {
+      "name": "service-1",
+      "releases": [
         {
-            "service-1": {
-                "releases": [
-                    {
-                        "name": "r1.5",
-                        "branch": "release/r1.0.0-rc"
-                    },
-                    {
-                        "name": "r2.0",
-                        "branch": "release/r4.0.0-rc"
-                    }
-                ]
-            }
+          "name": "r1.5",
+          "branch": "release/r1.0.0-rc"
         },
         {
-            "service-2": {
-                "releases": [
-                    {
-                        "name": "r1.5",
-                        "branch": "release/r1.0.0-rc"
-                    },
-                    {
-                        "name": "r2.0",
-                        "branch": "release/r4.0.0-rc"
-                    }
-                ]
-            }
-        },
-        {
-            "service-3": {
-                "releases": [
-                    {
-                        "name": "r1.5",
-                        "branch": "release/r1.3.0-rc"
-                    },
-                    {
-                        "name": "r2.0",
-                        "branch": "release/r4.1.0-rc"
-                    }
-                ]
-            }
+          "name": "r2.0",
+          "branch": "release/r4.0.0-rc"
         }
-    ]
+      ]
+    },
+    {
+      "name": "service-2",
+      "releases": [
+        {
+          "name": "r1.5",
+          "branch": "release/r1.0.0-rc"
+        },
+        {
+          "name": "r2.0",
+          "branch": "release/r4.0.0-rc"
+        }
+      ]
+    },
+    {
+      "name": "service-3",
+      "releases": [
+        {
+          "name": "r1.5",
+          "branch": "release/r1.3.0-rc"
+        },
+        {
+          "name": "r2.0",
+          "branch": "release/r4.1.0-rc"
+        }
+      ]
+    }
+  ]
 }
