@@ -50,7 +50,7 @@ def update_release(argv):
             jsondata["services"].append({ "name": arg_service, "releases": [ { "release": arg_release, "branch": arg_branch } ] })
 
         jsonFile.seek(0)
-        json.dump(jsondata, jsonFile)
+        json.dump(jsondata, jsonFile, indent=4, sort_keys=True)
         jsonFile.truncate()
 
 if __name__ == "__main__":
