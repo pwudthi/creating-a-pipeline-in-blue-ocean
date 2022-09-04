@@ -55,6 +55,15 @@
                     "release": "r1.0"
                 }
             ]
+        },
+        {
+            "name": "service-5",
+            "releases": [
+                {
+                    "branch": "release/r1.0.0",
+                    "release": "r1.5"
+                }
+            ]
         }
     ]
 }
