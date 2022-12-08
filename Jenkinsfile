@@ -3,8 +3,8 @@ def example;
 
 node {
   script {
-    configs = readTrusted "scripts/configs.groovy"
-    example = readTrusted "scripts/example.groovy"
+    configs = load "scripts/configs.groovy"
+    example = load "scripts/example.groovy"
   }
 }
 
