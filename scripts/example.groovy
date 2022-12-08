@@ -10,10 +10,7 @@ def getProjects() {
   return [
     'app1',
     'app2',
-    'app3',
-    'app4',
-    'app5',
-    'app6'
+    'app3'
   ]
 }
 return this
