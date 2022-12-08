@@ -1,15 +1,26 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:6-alpine'
-      args '-p 3000:3000'
-    }
-
+  agent none
+  options {
+      retry(1)
+      timeout(time: 3, unit: 'HOURS')
+  }
+  environment {
+      UPDATE_CACHE = "true"
+      DOCKER_CREDENTIALS = credentials('dockerhub')
+      DOCKER_USERNAME = "${env.DOCKER_CREDENTIALS_USR}"
+      DOCKER_PASSWORD = "${env.DOCKER_CREDENTIALS_PSW}"
+      DOCKER_CLI_EXPERIMENTAL = "enabled"
+      // PULP_PROD and PULP_STAGE are used to do releases
+      PULP_HOST_PROD = "https://api.pulp.konnect-prod.konghq.com"
+      PULP_PROD = credentials('PULP')
+      PULP_HOST_STAGE = "https://api.pulp.konnect-stage.konghq.com"
+      PULP_STAGE = credentials('PULP_STAGE')
+      DEBUG = 0
   }
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
+        echo "Build"
       }
     }
 
@@ -18,15 +29,13 @@ pipeline {
         CI = 'true'
       }
       steps {
-        sh './jenkins/scripts/test.sh'
+        echo "Test"
       }
     }
 
     stage('Deliver') {
       steps {
-        sh './jenkins/scripts/deliver.sh'
-        input 'Finished using the web site? (Click "Proceed" to continue)'
-        sh './jenkins/scripts/kill.sh'
+        echo "Deliver"
       }
     }
 
