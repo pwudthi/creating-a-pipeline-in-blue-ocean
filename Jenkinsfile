@@ -9,9 +9,9 @@ pipeline {
       DEBUG = 0
   }
   stages {
-    stage('Build') {
+    stage('Set Parameters') {
       steps {
-        echo "Build"
+        echo "Set parameters"
         script {
           properties([
             parameters([
@@ -39,6 +39,12 @@ pipeline {
             ])
           ])
         }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        echo "Build"
       }
     }
 
