@@ -1,5 +1,4 @@
-def configs;
-def example;
+def modules = [:]
 
 pipeline {
   agent any
@@ -16,11 +15,11 @@ pipeline {
       steps {
         echo "Set parameters"
         script {
-          configs = load "scripts/configs.groovy"
-          example = load "scripts/example.groovy"
+          modules.configs = load "scripts/configs.groovy"
+          modules.example = load "scripts/example.groovy"
           properties([
             parameters([
-              choice(choices: example.getProjects(), name: 'Application'),
+              choice(choices: modules.example.getProjects(), name: 'Application'),
               string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
               booleanParam(defaultValue: true, name: 'check_quality_gate'),
               booleanParam(defaultValue: false, name: 'skip_build')
@@ -34,7 +33,7 @@ pipeline {
       steps {
         echo "Build"
         script {
-          example.otherExampleMethod()
+          modules.example.otherExampleMethod()
         }
       }
     }
@@ -46,7 +45,7 @@ pipeline {
       steps {
         echo "Test"
         script {
-          configs.getTargetFn()
+          modules.configs.getTargetFn()
         }
       }
     }
