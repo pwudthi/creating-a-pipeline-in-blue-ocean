@@ -37,7 +37,7 @@ pipeline {
       steps {
         echo "Build"
         script {
-          modules.example..otherExampleMethod()
+          modules.example.otherExampleMethod()
         }
       }
     }
