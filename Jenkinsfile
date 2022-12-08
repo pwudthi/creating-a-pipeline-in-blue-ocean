@@ -1,5 +1,11 @@
 Map modules = [:]
 
+node {
+  script {
+    modules.example = load "scripts/example.groovy"
+  }
+}
+
 pipeline {
   agent any
   options {
@@ -15,7 +21,6 @@ pipeline {
       steps {
         echo "Set parameters"
         script {
-          modules.example = load "scripts/example.groovy"
           properties([
             parameters([
               choice(choices: modules.example.getProjects(), name: 'Application'),
