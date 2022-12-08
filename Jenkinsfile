@@ -15,8 +15,8 @@ pipeline {
       steps {
         echo "Set parameters"
         script {
-          modules.configs = load "scripts/configs.groovy"
-          modules.example = load "scripts/example.groovy"
+          modules.configs = evaluate readTrusted("scripts/configs.groovy")
+          modules.example = evaluate readTrusted("scripts/example.groovy")
           properties([
             parameters([
               choice(choices: modules.example.getProjects(), name: 'Application'),
