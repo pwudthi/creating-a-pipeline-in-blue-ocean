@@ -1,13 +1,12 @@
 pipeline {
   agent any
   options {
-      retry(1)
-      timeout(time: 3, unit: 'HOURS')
+    retry(1)
+    timeout(time: 3, unit: 'HOURS')
   }
   environment {
-      UPDATE_CACHE = "true"
-      DEBUG = 0
-      def custom_functions = load "scripts/example.groovy"
+    UPDATE_CACHE = "true"
+    DEBUG = 0
   }
   stages {
     stage('Set Parameters') {
@@ -29,6 +28,7 @@ pipeline {
       steps {
         echo "Build"
         script {
+          def custom_functions = load "scripts/example.groovy"
           custom_functions.otherExampleMethod()
         }
       }
