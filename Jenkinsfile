@@ -1,5 +1,3 @@
-def custom_functions = load "scripts/example.groovy"
-
 pipeline {
   agent any
   options {
@@ -9,6 +7,7 @@ pipeline {
   environment {
       UPDATE_CACHE = "true"
       DEBUG = 0
+      def custom_functions = load "scripts/example.groovy"
   }
   stages {
     stage('Set Parameters') {
