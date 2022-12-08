@@ -1,4 +1,4 @@
-def getTarget() {
+def getTargetFn() {
   println("Get target!!!")
 }
 

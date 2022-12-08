@@ -49,7 +49,7 @@ pipeline {
       }
       steps {
         echo "Test"
-        modules.configs.getTarget()
+        modules.configs.getTargetFn()
       }
     }
 
