@@ -1,3 +1,5 @@
+Map modules = [:]
+
 pipeline {
   agent any
   options {
@@ -13,10 +15,10 @@ pipeline {
       steps {
         echo "Set parameters"
         script {
-          def custom_functions = load "scripts/example.groovy"
+          modules.example = load "scripts/example.groovy"
           properties([
             parameters([
-              choice(choices: custom_functions.getProjects(), name: 'Application'),
+              choice(choices: modules.example.getProjects(), name: 'Application'),
               string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
               booleanParam(defaultValue: true, name: 'check_quality_gate'),
               booleanParam(defaultValue: false, name: 'skip_build')
