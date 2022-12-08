@@ -15,9 +15,9 @@ pipeline {
         script {
           properties([
             parameters([
-              string(defaultValue: 'develop', description: 'Branch name', name: 'branch_name', trim: true),
-              choice(choices: ['YES', 'NO'], description: 'Validate code quality with quality gate', name: 'check_quality_gate'),
-              booleanParam(description: 'Skip build', name: 'skip_build')
+              string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
+              booleanParam(defaultValue: true, name: 'check_quality_gate'),
+              booleanParam(defaultValue: true, name: 'skip_build')
             ])
           ])
         }
