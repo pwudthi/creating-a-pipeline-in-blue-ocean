@@ -1,7 +1,3 @@
-def modules = [:]
-def test_val1
-def test_val2
-
 pipeline {
   agent any
   options {
@@ -9,8 +5,9 @@ pipeline {
     timeout(time: 3, unit: 'HOURS')
   }
   environment {
-    UPDATE_CACHE = "true"
-    DEBUG = 0
+    modules = [:]
+    test_val1 = ''
+    test_val2 = ''
   }
   stages {
     stage('Set Parameters') {
