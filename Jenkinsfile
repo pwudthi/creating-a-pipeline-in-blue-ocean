@@ -1,4 +1,6 @@
 def modules = [:]
+def test_val1
+def test_val2
 
 pipeline {
   agent any
@@ -25,6 +27,7 @@ pipeline {
               booleanParam(defaultValue: false, name: 'skip_build')
             ])
           ])
+          test_val1 = 'Test'
         }
       }
     }
@@ -44,6 +47,7 @@ pipeline {
       }
       steps {
         echo "Test"
+        echo "${test_val1}"
         script {
           modules.configs.getTargetFn()
         }
