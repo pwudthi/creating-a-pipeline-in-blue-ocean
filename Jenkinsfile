@@ -1,3 +1,5 @@
+def custom_functions = load "scripts/example.groovy"
+
 pipeline {
   agent any
   options {
@@ -28,7 +30,6 @@ pipeline {
       steps {
         echo "Build"
         script {
-          def custom_functions = load "scripts/example.groovy"
           custom_functions.otherExampleMethod()
         }
       }
