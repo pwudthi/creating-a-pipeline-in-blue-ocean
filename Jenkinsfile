@@ -16,7 +16,7 @@ pipeline {
           def custom_functions = load "scripts/example.groovy"
           properties([
             parameters([
-              choice(choices: custom_functions.getProjects(), name: 'Application')
+              choice(choices: custom_functions.getProjects(), name: 'Application'),
               string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
               booleanParam(defaultValue: true, name: 'check_quality_gate'),
               booleanParam(defaultValue: true, name: 'skip_build')
