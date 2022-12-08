@@ -2,8 +2,8 @@ Map modules = [:]
 
 node {
   script {
-    modules.configs = load("scripts/configs.groovy")
-    //modules.example = load("scripts/example.groovy")
+    modules.configs = readTrusted "scripts/configs.groovy"
+    modules.example = readTrusted "scripts/example.groovy"
   }
 }
 
