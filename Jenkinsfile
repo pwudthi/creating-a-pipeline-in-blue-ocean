@@ -1,5 +1,12 @@
-def configs = readTrusted "scripts/configs.groovy"
-def example = readTrusted "scripts/example.groovy"
+def configs;
+def example;
+
+node {
+  script {
+    configs = readTrusted "scripts/configs.groovy"
+    example = readTrusted "scripts/example.groovy"
+  }
+}
 
 pipeline {
   agent any
