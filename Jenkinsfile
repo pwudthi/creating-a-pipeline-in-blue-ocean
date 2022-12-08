@@ -3,6 +3,7 @@ Map modules = [:]
 node {
   script {
     modules.example = load "scripts/example.groovy"
+    modules.configs = load "scripts/configs.groovy"
   }
 }
 
@@ -48,6 +49,7 @@ pipeline {
       }
       steps {
         echo "Test"
+        modules.configs.getTarget()
       }
     }
 
