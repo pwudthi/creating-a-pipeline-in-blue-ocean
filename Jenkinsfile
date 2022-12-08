@@ -37,8 +37,7 @@ pipeline {
       steps {
         echo "Build"
         script {
-          def custom_functions = load "scripts/example.groovy"
-          custom_functions.otherExampleMethod()
+          modules.example..otherExampleMethod()
         }
       }
     }
