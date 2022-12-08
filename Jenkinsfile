@@ -5,9 +5,9 @@ pipeline {
     timeout(time: 3, unit: 'HOURS')
   }
   environment {
-    modules = [:]
-    test_val1 = ''
-    test_val2 = ''
+    def modules = [:]
+    def test_val1 = ''
+    def test_val2 = ''
   }
   stages {
     stage('Set Parameters') {
