@@ -2,7 +2,7 @@ Map modules = [:]
 
 node {
   script {
-    modules.configs = load("scripts/configs.groovy")
+    //modules.configs = load("scripts/configs.groovy")
     modules.example = load("scripts/example.groovy")
   }
 }
