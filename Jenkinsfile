@@ -1,9 +1,7 @@
-Map modules = [:]
-
 node {
   script {
-    modules.configs = readTrusted "scripts/configs.groovy"
-    modules.example = readTrusted "scripts/example.groovy"
+    def configs = readTrusted "scripts/configs.groovy"
+    def example = readTrusted "scripts/example.groovy"
   }
 }
 
@@ -24,7 +22,7 @@ pipeline {
         script {
           properties([
             parameters([
-              choice(choices: modules.example.getProjects(), name: 'Application'),
+              choice(choices: example.getProjects(), name: 'Application'),
               string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
               booleanParam(defaultValue: true, name: 'check_quality_gate'),
               booleanParam(defaultValue: false, name: 'skip_build')
@@ -38,7 +36,7 @@ pipeline {
       steps {
         echo "Build"
         script {
-          modules.example.otherExampleMethod()
+          example.otherExampleMethod()
         }
       }
     }
@@ -50,7 +48,7 @@ pipeline {
       steps {
         echo "Test"
         script {
-          modules.configs.getTargetFn()
+          configs.getTargetFn()
         }
       }
     }
