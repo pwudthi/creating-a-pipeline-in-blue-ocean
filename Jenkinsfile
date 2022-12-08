@@ -1,13 +1,3 @@
-def configs;
-def example;
-
-node {
-  script {
-    configs = load "scripts/configs.groovy"
-    example = load "scripts/example.groovy"
-  }
-}
-
 pipeline {
   agent any
   options {
@@ -17,12 +7,16 @@ pipeline {
   environment {
     UPDATE_CACHE = "true"
     DEBUG = 0
+    def configs;
+    def example;
   }
   stages {
     stage('Set Parameters') {
       steps {
         echo "Set parameters"
         script {
+          configs = load "scripts/configs.groovy"
+          example = load "scripts/example.groovy"
           properties([
             parameters([
               choice(choices: example.getProjects(), name: 'Application'),
