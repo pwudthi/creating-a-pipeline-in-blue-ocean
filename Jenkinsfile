@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   options {
       retry(1)
       timeout(time: 3, unit: 'HOURS')

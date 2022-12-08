@@ -1,12 +1,8 @@
 def exampleMethod() {
-  node {
-    println("exampleMethod")
-  }
+  println("exampleMethod")
 }
 
 def otherExampleMethod() {
-  node {
-    println("otherExampleMethod")
-  }
+  println("otherExampleMethod")
 }
 return this
