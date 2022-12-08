@@ -1,3 +1,6 @@
+def configs;
+def example;
+
 pipeline {
   agent any
   options {
@@ -7,8 +10,6 @@ pipeline {
   environment {
     UPDATE_CACHE = "true"
     DEBUG = 0
-    def configs;
-    def example;
   }
   stages {
     stage('Set Parameters') {
