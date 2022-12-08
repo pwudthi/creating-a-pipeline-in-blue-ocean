@@ -14,22 +14,11 @@ pipeline {
         echo "Set parameters"
         script {
           properties([
-            parameters([
-                choice(
-                    choices: ['ONE', 'TWO'],
-                    name: 'PARAMETER_01'
-                ),
-                booleanParam(
-                    defaultValue: true,
-                    description: '',
-                    name: 'BOOLEAN'
-                ),
-                string(
-                    defaultValue: 'scriptcrunch',
-                    name: 'STRING-PARAMETER',
-                    trim: true
-                )
-            ])
+            parameters {
+              string defaultValue: 'develop', description: 'Branch name', name: 'branch_name', trim: true
+              choice choices: ['YES', 'NO'], description: 'Validate code quality with quality gate', name: 'check_quality_gate'
+              booleanParam description: 'Skip build', name: 'skip_build'
+            }
           ])
         }
       }
