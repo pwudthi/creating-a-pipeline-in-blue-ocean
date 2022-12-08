@@ -1,3 +1,5 @@
+def custom_functions = load "scripts/example.groovy"
+
 pipeline {
   agent none
   options {
@@ -27,6 +29,9 @@ pipeline {
     stage('Build') {
       steps {
         echo "Build"
+        script {
+          custom_functions.otherExampleMethod()
+        }
       }
     }
 
