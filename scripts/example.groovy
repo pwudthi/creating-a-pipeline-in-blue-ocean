@@ -12,7 +12,8 @@ def getProjects() {
     'app2',
     'app3',
     'app4',
-    'app5'
+    'app5',
+    'app6'
   ]
 }
 return this
