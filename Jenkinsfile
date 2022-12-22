@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 // build steps go here
+              echo "Parameter value: ${params.PARAMETER_NAME}"
             }
         }
         stage('Test') {
@@ -18,6 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // deploy steps go here
+              echo "Parameter value: ${params.PARAMETER_NAME}"
             }
         }
     }
