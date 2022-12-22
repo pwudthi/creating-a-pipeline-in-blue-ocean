@@ -12,9 +12,9 @@ pipeline {
   }
 
   parameters {
-    choice(choices: modules.example.getProjects(), name: 'Application'),
-    string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true),
-    booleanParam(defaultValue: true, name: 'check_quality_gate'),
+    choice(choices: modules.example.getProjects(), name: 'Application')
+    string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
+    booleanParam(defaultValue: true, name: 'check_quality_gate')
     booleanParam(defaultValue: false, name: 'skip_build')
   }
 
