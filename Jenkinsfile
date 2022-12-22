@@ -9,11 +9,11 @@ pipeline {
     timeout(time: 3, unit: 'HOURS')
   }
 
-  modules.configs = evaluate readTrusted("scripts/configs.groovy")
-  modules.example = evaluate readTrusted("scripts/example.groovy")
+  //modules.configs = evaluate readTrusted("scripts/configs.groovy")
+  //modules.example = evaluate readTrusted("scripts/example.groovy")
 
   parameters {
-    choice(choices: modules.example.getProjects(), name: 'Application')
+    //choice(choices: modules.example.getProjects(), name: 'Application')
     string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
     booleanParam(defaultValue: true, name: 'check_quality_gate')
     booleanParam(defaultValue: false, name: 'skip_build')
@@ -33,7 +33,8 @@ pipeline {
       steps {
         echo "Build"
         script {
-          modules.example.otherExampleMethod()
+          //modules.example.otherExampleMethod()
+          echo ""
         }
       }
     }
@@ -46,7 +47,8 @@ pipeline {
         echo "Test"
         echo "${test_val1}"
         script {
-          modules.configs.getTargetFn()
+          //modules.configs.getTargetFn()
+          echo ''
         }
       }
     }
