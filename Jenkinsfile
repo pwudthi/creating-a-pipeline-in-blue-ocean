@@ -10,10 +10,10 @@ pipeline {
   }
 
   //modules.configs = evaluate readTrusted("scripts/configs.groovy")
-  //modules.example = evaluate readTrusted("scripts/example.groovy")
+  modules.example = evaluate readTrusted("scripts/example.groovy")
 
   parameters {
-    //choice(choices: modules.example.getProjects(), name: 'Application')
+    choice(choices: modules.example.getProjects(), name: 'Application')
     string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
     booleanParam(defaultValue: true, name: 'check_quality_gate')
     booleanParam(defaultValue: false, name: 'skip_build')
