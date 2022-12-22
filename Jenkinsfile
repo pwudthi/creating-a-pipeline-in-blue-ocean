@@ -9,8 +9,8 @@ pipeline {
     timeout(time: 3, unit: 'HOURS')
   }
   parameters {
-    load("scripts/configs.groovy")
-    load("scripts/example.groovy")
+    load('scripts/configs.groovy')
+    load('scripts/example.groovy')
     choice(choices: getProjects(), name: 'Application')
     string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
     booleanParam(defaultValue: true, name: 'check_quality_gate')
