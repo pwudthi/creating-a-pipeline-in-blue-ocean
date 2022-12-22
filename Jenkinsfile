@@ -1,4 +1,4 @@
-def example = evaluate readTrusted("scripts/example.groovy")
+def example = load("scripts/example.groovy")
 def test_val1 = ''
 def test_val2 = ''
 
