@@ -1,6 +1,4 @@
 def modules = [:]
-modules.configs = evaluate readTrusted("scripts/configs.groovy")
-modules.example = evaluate readTrusted("scripts/example.groovy")
 def test_val1 = ''
 def test_val2 = ''
 
@@ -10,6 +8,9 @@ pipeline {
     retry(1)
     timeout(time: 3, unit: 'HOURS')
   }
+
+  modules.configs = evaluate readTrusted("scripts/configs.groovy")
+  modules.example = evaluate readTrusted("scripts/example.groovy")
 
   parameters {
     choice(choices: modules.example.getProjects(), name: 'Application')
