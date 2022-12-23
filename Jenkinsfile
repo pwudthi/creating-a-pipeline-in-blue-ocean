@@ -1,4 +1,3 @@
-def example = load("scripts/example.groovy")
 def test_val1 = ''
 def test_val2 = ''
 
@@ -13,6 +12,9 @@ pipeline {
 
 
   parameters {
+    script {
+      def example = load("scripts/example.groovy")
+    }
     choice(choices: example.getProjects(), name: 'Application')
     string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
     booleanParam(defaultValue: true, name: 'check_quality_gate')
