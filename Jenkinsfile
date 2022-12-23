@@ -33,8 +33,7 @@ pipeline {
       steps {
         echo "Build"
         script {
-          //modules.example.otherExampleMethod()
-          echo ""
+          modules.example.otherExampleMethod()
         }
       }
     }
@@ -47,8 +46,7 @@ pipeline {
         echo "Test"
         echo "${test_val1}"
         script {
-          //modules.configs.getTargetFn()
-          echo ''
+          modules.configs.getTargetFn()
         }
       }
     }
