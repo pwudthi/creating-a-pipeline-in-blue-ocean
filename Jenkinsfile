@@ -14,8 +14,9 @@ pipeline {
   parameters {
     script {
       def example = load("scripts/example.groovy")
+      def projects = example.getProjects()
     }
-    choice(choices: example.getProjects(), name: 'Application')
+    choice(choices: projects, name: 'Application')
     string(defaultValue: 'develop', description: '', name: 'branch_name', trim: true)
     booleanParam(defaultValue: true, name: 'check_quality_gate')
     booleanParam(defaultValue: false, name: 'skip_build')
