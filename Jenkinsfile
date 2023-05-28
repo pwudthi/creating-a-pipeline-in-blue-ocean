@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    stage('Install Groovy') {
+        steps {
+            tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
+        }
+    }
+
     stages {
         stage('Build') {
             steps {
