@@ -5,7 +5,7 @@ pipeline {
 
         stage('Install Groovy') {
             steps {
-                tool name: 'Groovy', type: 'hudson.plugins.groovy.GroovyInstallation'
+                tool name: 'Groovy-4.0.9', type: 'hudson.plugins.groovy.GroovyInstallation'
             }
         }
 
