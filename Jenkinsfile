@@ -17,7 +17,7 @@ pipeline {
                     echo 'Running tests...'
                     checkout scm
                     // Your test steps here
-                    sh 'groovy JenkinsfileTest/groovy'
+                    sh 'groovy JenkinsfileTest.groovy'
                 }
             }
         }
