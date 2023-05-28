@@ -1,43 +1,33 @@
-import org.junit.*
-import static org.junit.Assert.*
+import org.jenkinsci.plugins.pipeline.modeldefinition.util.FolderNameUtils
+import org.jenkinsci.plugins.pipeline.modeldefinition.validator.ModelValidatorImpl
+import org.jenkinsci.plugins.pipeline.modeldefinition.validator.SandboxChecker
 
-class JenkinsfileTest {
+class JenkinsfileTest extends Specification {
+    def "Test Jenkinsfile"() {
+        given:
+        def pipelineScript = loadJenkinsfile("Jenkinsfile")
 
-    @Test
-    void testBuildStage() {
-        def pipeline = new Jenkinsfile()
+        when:
+        def validationResult = validateJenkinsfile(pipelineScript)
 
-        def buildResult = pipeline.build()
-
-        assertNotNull(buildResult)
-        assertEquals('Building...', buildResult)
-        // Add more assertions as needed
+        then:
+        validationResult.isValid() == true
+        validationResult.getErrorCount() == 0
     }
 
-    @Test
-    void testDeployStage() {
-        def pipeline = new Jenkinsfile()
-
-        def deployResult = pipeline.deploy()
-
-        assertNotNull(deployResult)
-        assertEquals('Deploying...', deployResult)
-        // Add more assertions as needed
+    private String loadJenkinsfile(String jenkinsfilePath) {
+        // Load the Jenkinsfile content
+        return readFile(jenkinsfilePath)
     }
 
-    // Add more test cases as needed
-}
-
-class Jenkinsfile {
-    def build() {
-        // Simulate build logic
-        return 'Building...'
+    private ModelValidatorImpl.ValidationResult validateJenkinsfile(String pipelineScript) {
+        // Validate the Jenkinsfile using Jenkins Job DSL Plugin and Pipeline Unit testing framework
+        def modelValidator = new ModelValidatorImpl(new SandboxChecker(), new FolderNameUtils())
+        modelValidator.validate(pipelineScript)
     }
 
-    def deploy() {
-        // Simulate deployment logic
-        return 'Deploying...!'
+    private String readFile(String filePath) {
+        // Read the file content
+        new File(filePath).text
     }
-
-    // Add more functions or stages from Jenkinsfile to test
 }
