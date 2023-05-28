@@ -36,7 +36,7 @@ class Jenkinsfile {
 
     def deploy() {
         // Simulate deployment logic
-        return 'Deploying...'
+        return 'Deploying...!'
     }
 
     // Add more functions or stages from Jenkinsfile to test
