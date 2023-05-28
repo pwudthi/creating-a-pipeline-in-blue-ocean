@@ -1,7 +1,3 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.util.FolderNameUtils
-import org.jenkinsci.plugins.pipeline.modeldefinition.validator.ModelValidatorImpl
-import org.jenkinsci.plugins.pipeline.modeldefinition.validator.SandboxChecker
-
 class JenkinsfileTest extends Specification {
     def "Test Jenkinsfile"() {
         given:
@@ -20,9 +16,9 @@ class JenkinsfileTest extends Specification {
         return readFile(jenkinsfilePath)
     }
 
-    private ModelValidatorImpl.ValidationResult validateJenkinsfile(String pipelineScript) {
-        // Validate the Jenkinsfile using Jenkins Job DSL Plugin and Pipeline Unit testing framework
-        def modelValidator = new ModelValidatorImpl(new SandboxChecker(), new FolderNameUtils())
+    private ModelValidator.ValidationResult validateJenkinsfile(String pipelineScript) {
+        // Validate the Jenkinsfile using Pipeline Unit testing framework
+        def modelValidator = new ModelValidator()
         modelValidator.validate(pipelineScript)
     }
 
