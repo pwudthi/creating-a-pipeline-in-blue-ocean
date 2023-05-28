@@ -24,7 +24,7 @@ pipeline {
                     echo 'Running tests...'
                     checkout scm
                     // Your test steps here
-                    sh "'${tool name: 'Groovy-4.0.9', type: 'hudson.plugins.groovy.GroovyInstallation'}/bin/groovy' <path_to_script.groovy>"
+                    sh "'${tool name: 'Groovy-4.0.9', type: 'hudson.plugins.groovy.GroovyInstallation'}/bin/groovy' JenkinsfileTest.groovy"
                 }
             }
         }
